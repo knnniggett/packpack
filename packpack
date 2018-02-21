@@ -128,6 +128,11 @@ chmod a+x ${BUILDDIR}/userwrapper.sh
 env | grep -E "^PRODUCT=|^VERSION=|^RELEASE=|^ABBREV=|^TARBALL_|^CHANGELOG_|^CCACHE_|^PACKAGECLOUD_|^SMPFLAGS=|^OS=|^DIST=" \
     > ${BUILDDIR}/env
 
+# Load user environment variables
+if [ -f "${USER_ENV_FILE}" ]; then
+    cat ${USER_ENV_FILE} >> ${BUILDDIR}/env
+fi
+
 #
 # Setup cache directory
 #
