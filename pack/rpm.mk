@@ -124,7 +124,7 @@ package: $(BUILDDIR)/$(RPMSRC)
 	@echo "-------------------------------------------------------------------"
 	@echo "Building RPM packages"
 	@echo "-------------------------------------------------------------------"
-	rpmbuild \
+	setarch $(ARCH) rpmbuild \
 		--define '_topdir $(BUILDDIR)' \
 		--define '_sourcedir $(BUILDDIR)' \
 		--define '_specdir $(BUILDDIR)' \
